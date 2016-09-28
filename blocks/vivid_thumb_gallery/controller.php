@@ -147,7 +147,6 @@ class Controller extends BlockController
             $blockURL = $uh->getBlockTypeAssetsURL($bt);
             $this->requireAsset('javascript', 'jquery');
             if($this->zoomType=="lightbox"){
-                $this->addHeaderItem('<link rel="stylesheet" type="text/css" href="'.$blockURL.'/assets/featherlight.css"/>');
                 $this->addFooterItem('<script type="text/javascript" src="'.$blockURL.'/assets/imagelightbox.min.js"></script>');
             }
             else{
