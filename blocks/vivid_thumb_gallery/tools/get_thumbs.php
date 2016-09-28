@@ -69,7 +69,7 @@ $allThumbs = thumbSort($allThumbs,'sort',SORT_ASC);
 foreach($allThumbs as $thumb){
     $file = File::getByID($thumb['fID']);
     $html .= "<div class='thumb-item-shell'>";
-    $html .= "<img src='".$file->getRecentVersion()->getThumbnailURL('file_manager_listing')."'>";
+    $html .= "<img src='".$file->getRecentVersion()->getThumbnailURL('file_manager_listing')."' style='width: 100px; max-width: 100%;'>";
     $html .= "<div class='thumb-file-name'>".$file->getFileName()."</div>";
     $html .= "<input type='hidden' name='fID[]' value='".$file->getFileID()."'>";
     $html .= "<input type='hidden' name='sort[]' class='item-sort'>";
