@@ -96,7 +96,8 @@ $(function(){
         onEnd: function(){
             $(".blackout").remove();
             arrowsOff(); 
-        }
+        },
+        quitOnImgClick: true //enable quit on image click
     });
 });
 </script>

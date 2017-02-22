@@ -60,14 +60,18 @@ class Controller extends BlockController
         foreach($existingThumbs as $thumb){
             $existingThumbIDs[] = $thumb['fID'];
         }
-        
+        //if no file set is selected, abort and return empty array
+         if($fsID == 'none'){
+             $this->set("items",array());
+            return array();
+         }
         $fs = FileSet::getByID($fsID);
-        $fileList = new FileList();            
+        $fileList = new FileList();
         $fileList->filterBySet($fs);
         $fileList->filterByType(FileType::T_IMAGE);
         $fileList->sortByFileSetDisplayOrder();
         $files = $fileList->get(); //gives us all the files in the set
-        
+
         //we're going to make a new array of thumbs from the files in our fileset.
         $allThumbs = array();
         foreach($files as $file){
@@ -78,7 +82,7 @@ class Controller extends BlockController
                 $thumb = array('fID'=>$file->getFileID(),'sort'=>9999);
             }
             $allThumbs[] = $thumb;
-        }   
+        }
         $allThumbs = $this->thumbSort($allThumbs,'sort',SORT_ASC);
         $this->set("items",$allThumbs);
     }
