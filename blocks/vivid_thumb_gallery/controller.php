@@ -138,7 +138,7 @@ class Controller extends BlockController
         }
         return $e;
     }
-    public function registerViewAssets()
+    public function registerViewAssets($outputContent='')
     {
         $uh = Loader::helper('concrete/urls');
         $bObj = $this->getBlockObject();
